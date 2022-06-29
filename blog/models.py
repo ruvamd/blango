@@ -22,7 +22,7 @@ class Post(models.Model):
     content = models.TextField()
     tags = models.ManyToManyField(Tag, related_name="posts")
     
-    comments = GenericRelation(Comment)
+    # comments = GenericRelation(Comment)
 
     def __str__(self):
         return self.title
