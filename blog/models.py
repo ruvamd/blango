@@ -1,8 +1,10 @@
 from django.db import models
+# from django.db.models import Model
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.models import ContentType
+import datetime
 
 # Create your models here.
 class Tag(models.Model):
