@@ -3,15 +3,25 @@ from django.utils import timezone
 from blog.models import Post
 from blog.forms import CommentForm
 import logging
+# from django.views.decorators.cache import cache_page
+# from django.views.decorators.vary import vary_on_headers
+# from django.views.decorators.vary import vary_on_cookie
 
 #Create a module-level variable
 logger = logging.getLogger(__name__)
 
 # Create your views here.
+# @cache_page(300)
+# @vary_on_headers("Cookie")
+# @vary_on_cookie
 def index(request):
+    # from django.http import HttpResponse
+    # logger.debug("Index function is called!")
+    # return HttpResponse(str(request.user).encode("ascii"))
     posts = Post.objects.filter(published_at__lte=timezone.now())
-    return render(request, "blog/index.html", {"posts": posts})
     logger.debug("Got %d posts", len(posts))
+    return render(request, "blog/index.html", {"posts": posts})
+    
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
