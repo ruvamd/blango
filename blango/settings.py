@@ -52,6 +52,7 @@ class Dev(Configuration):
         "crispy_forms",
         "crispy_bootstrap5",
         "debug_toolbar",
+        
     ]
 
     MIDDLEWARE = [
@@ -197,6 +198,7 @@ class Dev(Configuration):
       'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
       'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     ]
+
     INTERNAL_IPS = ["/ip"]
     AUTH_USER_MODEL = "blango_auth.User"
 
