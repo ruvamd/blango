@@ -12,6 +12,8 @@ router = DefaultRouter()
 router.register("tags", TagViewSet)
 router.register("posts", PostViewSet)
 
+
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Blango API",
@@ -42,4 +44,13 @@ urlpatterns += [
         name="schema-swagger-ui",
     ),
     path("", include(router.urls)),
+]
+
+urlpatterns += [
+    path("", include(router.urls)),
+    path(
+        "posts/by-time/<str:period_name>/",
+        PostViewSet.as_view({"get": "list"}),
+        name="posts-by-time",
+    ),
 ]
